@@ -2,7 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -12,153 +19,262 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '9784439914949460');
+fbq('init', '1299843288989454');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=9784439914949460&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=1299843288989454&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Aakash Cricket Zone 2015</title>
-
-<style>
-  *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui;
-  }
-
-  body{
-    min-height:100vh;
-    background:linear-gradient(135deg,#d8f2ff,#e8ffe3,#fff0d6);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-  }
-
-  .card{
-    width:100%;
-    max-width:420px;
-    background:#ffffff;
-    border-radius:28px;
-    padding:32px 26px 30px;
-    text-align:center;
-    box-shadow:0 20px 40px rgba(0,0,0,0.08);
-  }
-
-  /* DP GLOW */
-  .dp-wrap{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    margin:0 auto 20px;
-    padding:4px;
-    background:radial-gradient(circle,#1d4ed8,#3b82f6,#93c5fd);
-    box-shadow:0 0 25px rgba(59,130,246,0.35);
-  }
-
-  .dp-wrap img{
-    width:100%;
-    height:100%;
-    border-radius:50%;
-    object-fit:cover;
-    border:3px solid #ffffff;
-  }
-
-  h1{
-    font-size:30px;
-    font-weight:900;
-    color:#1e3a8a;
-    margin-bottom:10px;
-  }
-
-  .sub{
-    font-size:15px;
-    color:#475569;
-    line-height:1.45;
-    margin-bottom:26px;
-  }
-
-  /* CTA BUTTON */
-  .cta{
-    display:block;
-    width:100%;
-    padding:16px 0;
-    border-radius:14px;
-    background:#1d4ed8;
-    color:#ffffff;
-    font-size:18px;
-    font-weight:800;
-    text-decoration:none;
-    box-shadow:0 12px 30px rgba(29,78,216,0.35);
-    margin-bottom:30px;
-    transition:.2s;
-  }
-
-  .cta:active{
-    transform:scale(.97);
-  }
-
-  /* LIST CHECKS */
-  .list{
-    text-align:left;
-    margin:0 auto 26px;
-    max-width:260px;
-  }
-
-  .item{
-    font-size:14px;
-    color:#0f172a;
-    margin-bottom:10px;
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
-
-  .item span{
-    font-size:18px;
-    color:#16a34a;
-  }
-
-  .footer{
-    font-size:12px;
-    color:#94a3b8;
-    margin-top:10px;
-  }
-
-</style>
+    <style>
+        /* Custom glow effects matching the image */
+        .profile-glow {
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+        }
+        .text-glow {
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+        }
+        .btn-glow {
+            box-shadow: 0 0 25px rgba(14, 165, 233, 0.7);
+        }
+        /* Outer page background - visible on laptop/desktop around the card */
+        body {
+            background: radial-gradient(circle at 50% 0%, #10203d 0%, #05070d 60%, #030509 100%);
+        }
+        /* The card itself, boxed with border + shadow so it reads as one contained unit on wide screens */
+        .card-box {
+            box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.15), 0 25px 60px -15px rgba(0,0,0,0.7), 0 0 40px rgba(14,165,233,0.08);
+        }
+        /* Countdown timer */
+        .outer-timer {
+            font-size: 48px;
+            font-weight: 800;
+            color: #fbbf24;
+            letter-spacing: 3px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 1.25rem;
+            text-shadow: 0 0 30px rgba(251,191,36,0.6), 0 0 60px rgba(251,191,36,0.25);
+            font-variant-numeric: tabular-nums;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        .outer-timer.urgent {
+            color: #ef4444;
+            text-shadow: 0 0 30px rgba(239,68,68,0.7), 0 0 60px rgba(239,68,68,0.4);
+        }
+        .timer-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+        .btn-glow.pulse-glow {
+            animation: pulse-glow 0.5s ease infinite alternate;
+        }
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 25px rgba(14,165,233,0.7); }
+            to   { box-shadow: 0 0 60px rgba(14,165,233,1), 0 0 30px rgba(56,189,248,0.8); }
+        }
+    </style>
 </head>
-<body>
+<body class="min-h-screen text-white font-sans antialiased selection:bg-sky-500 selection:text-white flex items-center justify-center p-4 md:p-10">
 
-<div class="card">
+    <!-- Card Box: full width on mobile, contained boxed card on laptop -->
+    <div class="w-full max-w-md bg-[#0b1426] rounded-none md:rounded-2xl overflow-hidden card-box">
 
-  <div class="dp-wrap">
-    <img src="image.png" alt="𝐒𝐮𝐧𝐢𝐥 𝐁𝐡𝐚𝐭𝐢𝐚 𝟐𝟎𝟏𝟒️"/>
-  </div>
+        <!-- Top Ticker / Live Status Bar -->
+        <div class="w-full bg-[#070d1a] border-b border-gray-800 px-4 py-2 text-xs md:text-sm flex justify-between items-center text-gray-300">
+            <div class="flex items-center space-x-2">
+                <span class="inline-block w-2.5 h-2.5 bg-red-600 rounded-full animate-pulse"></span>
+                <span class="font-bold text-red-500 uppercase tracking-wider">Live</span>
+                <span class="text-gray-500">|</span>
+                <span class="text-emerald-400 font-medium">▲ 0.03%</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div>NIFTY <span class="text-red-500 font-medium">▼ 0%</span></div>
+                <span class="text-gray-500">|</span>
+                <div class="flex items-center space-x-1 text-emerald-400">
+                    <i class="fa-solid fa-eye"></i>
+                    <span class="font-mono font-bold">1252</span>
+                </div>
+            </div>
+        </div>
 
-  <h3>Aakash Cricket Zone 2015</h3>
+        <!-- Content Container -->
+        <div class="px-5 pt-8 pb-10 flex flex-col items-center text-center">
 
-  <p class="sub">
-    Smart match perspective & clean insights —  
-    everything simplified for serious sports followers.
-  </p>
+            <!-- Profile Picture & Verified Badge -->
+            <div class="relative mb-5">
+                <div class="w-32 h-32 rounded-full overflow-hidden border-2 border-sky-400 profile-glow">
+                    <img src="dr.jpg" alt="Dr. Vikas Laddha" class="w-full h-full object-cover">
+                </div>
+                <!-- Verified Checkmark Badge -->
+                <div class="absolute bottom-1 right-2 bg-sky-500 text-white rounded-full w-7 h-7 flex items-center justify-center border-2 border-[#0b1426] shadow-md">
+                    <i class="fa-solid fa-check text-xs"></i>
+                </div>
+            </div>
 
-  <a href="https://telegram.me/+Rawge-gyhLoyYjdl" class="cta">Join on Telegram</a>
+            <!-- Name & Channel Subtitle -->
+            <h1 class="text-2xl md:text-3xl font-extrabold text-sky-400 tracking-wide uppercase text-glow mb-1">
+               𝘿𝙧. 𝙑𝙞𝙠𝙖𝙨 𝙇𝙖𝙙𝙙𝙝𝙖
+            </h1>
+            <p class="text-xs md:text-sm text-gray-400 tracking-widest uppercase font-semibold mb-5">
+                Official Trading Channel
+            </p>
 
-  <div class="list">
-    <div class="item"><span>✔</span> Daily Match Insights</div>
-    <div class="item"><span>✔</span> Strong Pre-match Logic</div>
-    <div class="item"><span>✔</span> High-accuracy Reads</div>
-    <div class="item"><span>✔</span> Free Access Limited Time</div>
-  </div>
+            <!-- Stats Counter Section -->
+            <div class="flex items-center justify-center space-x-2 text-sm md:text-base font-bold text-gray-200 mb-6 w-full">
+                <div class="flex items-center space-x-1.5">
+                    <i class="fa-solid fa-users text-sky-400"></i>
+                    <span>10 871 subscribers</span>
+                </div>
+                <span class="text-gray-600">|</span>
+                <div class="flex items-center space-x-1.5">
+                    <i class="fa-solid fa-chart-simple text-emerald-400"></i>
+                    <span>Market Insights</span>
+                </div>
+            </div>
 
-  <!-- <p class="footer">© 2025 𝐒𝐮𝐧𝐢𝐥 𝐁𝐡𝐚𝐭𝐢𝐚 𝟐𝟎𝟏𝟒️ | All Rights Reserved</p> -->
+            <!-- Channel Description Points -->
+            <div class="space-y-3 text-sm md:text-base text-gray-300 max-w-xs mb-8">
+                <div class="flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-chart-pie text-sky-400"></i>
+                    <span><span class="text-sky-400 font-semibold">Market Research</span> and <span class="text-sky-400 font-semibold">Analysis</span> based updates</span>
+                </div>
+                <div class="flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-briefcase text-amber-600"></i>
+                    <span>For <span class="text-sky-400 font-semibold">Educational Purposes</span> Only</span>
+                </div>
+                <div class="flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-bolt text-yellow-400"></i>
+                    <span><span class="text-sky-400 font-semibold">Risk Management</span> is Essential</span>
+                </div>
+            </div>
 
-</div>
+            <!-- Category Tags Grid -->
+            <div class="grid grid-cols-3 gap-2 w-full max-w-sm mb-4">
+                <div class="border border-sky-900/60 bg-sky-950/20 rounded-full py-2 px-3 text-xs font-bold text-sky-400 flex items-center justify-center space-x-1">
+                    <i class="fa-solid fa-chart-line text-[10px]"></i> <span>STOCKS</span>
+                </div>
+                <div class="border border-sky-900/60 bg-sky-950/20 rounded-full py-2 px-3 text-xs font-bold text-sky-400 flex items-center justify-center space-x-1">
+                    <i class="fa-solid fa-table-cells-large text-[10px]"></i> <span>INDEX</span>
+                </div>
+                <div class="border border-sky-900/60 bg-sky-950/20 rounded-full py-2 px-3 text-xs font-bold text-sky-400 flex items-center justify-center space-x-1">
+                    <i class="fa-solid fa-yen-sign text-[10px]"></i> <span>F&O</span>
+                </div>
+            </div>
+             <!-- Main CTA Call-to-Action Button -->
+            <button id="actionBtn" onclick="manualRedirect()" class="w-full bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-400 hover:to-sky-500 text-white font-extrabold text-base py-4 px-6 rounded-xl transition duration-300 ease-in-out transform hover:scale-[1.02] flex items-center justify-center space-x-2 btn-glow mb-8 tracking-wider uppercase">
+                <span id="btnText">🚀 Join Channel — It's Free</span>
+            </button>
 
+            <!-- Key Features Cards Grid -->
+            <div class="grid grid-cols-3 gap-2.5 w-full mb-8">
+                <div class="border border-sky-900/40 bg-[#0e1b33] rounded-xl p-3 flex flex-col items-center justify-center space-y-1.5">
+                    <i class="fa-solid fa-user-group text-sky-400 text-lg"></i>
+                    <span class="text-[10px] font-black tracking-wider text-gray-300 leading-tight">10K+<br>USERS</span>
+                </div>
+                <div class="border border-sky-900/40 bg-[#0e1b33] rounded-xl p-3 flex flex-col items-center justify-center space-y-1.5">
+                    <i class="fa-solid fa-pen-to-square text-sky-400 text-lg"></i>
+                    <span class="text-[10px] font-black tracking-wider text-gray-300 leading-tight">DAILY<br>UPDATES</span>
+                </div>
+                <div class="border border-sky-900/40 bg-[#0e1b33] rounded-xl p-3 flex flex-col items-center justify-center space-y-1.5">
+                    <i class="fa-solid fa-unlock-keyhole text-sky-400 text-lg"></i>
+                    <span class="text-[10px] font-black tracking-wider text-gray-300 leading-tight">FREE<br>ACCESS</span>
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <p class="timer-label">Offer closes in</p>
+            <div class="outer-timer" id="outerTimer">00:05</div>
+
+           
+
+            <!-- Additional Features / Trust Badges -->
+            <div class="space-y-2 text-xs md:text-sm text-gray-400 mb-10 text-left inline-block">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-shield-halved text-gray-400 text-sm"></i>
+                    <span>Risk Management Guidance</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-chart-simple text-sky-400 text-sm"></i>
+                    <span>Daily Market Analysis</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-bolt text-yellow-500 text-sm"></i>
+                    <span>Timely Trade Alerts</span>
+                </div>
+            </div>
+
+            <!-- Disclaimer Footer -->
+            <div class="border-t border-gray-900 pt-5 w-full">
+                <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed max-w-sm mx-auto">
+                    Disclaimer: Educational platform. 𝘿𝙧. 𝙑𝙞𝙠𝙖𝙨 𝙇𝙖𝙙𝙙𝙝𝙖 is NOT SEBI registered. No tips or investment advice provided. Trading involves financial risk. This site is not part of Meta.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+   <script>
+        const REDIRECT_URL = "https://t.me/+f2CkVvBa78xkZDJl";
+
+        // Yahan 5 ki jagah 15 kar diya hai
+        let outerCount = 15; 
+        let redirected = false;
+
+        const timerEl = document.getElementById('outerTimer');
+        const btn = document.getElementById('actionBtn');
+        const btnText = document.getElementById('btnText');
+
+        function pad(n) {
+            return n < 10 ? '0' + n : '' + n;
+        }
+
+        const outerTimer = setInterval(function () {
+            outerCount--;
+            timerEl.textContent = '00:' + pad(outerCount);
+
+            if (outerCount <= 3) {
+                timerEl.classList.add('urgent');
+            }
+
+            if (outerCount <= 0) {
+                clearInterval(outerTimer);
+                timerEl.textContent = '00:00';
+                doRedirect();
+            }
+        }, 1000);
+
+        function doRedirect() {
+            if (redirected) return;
+            redirected = true;
+
+            btn.classList.add('pulse-glow');
+            btnText.textContent = 'Connecting...';
+
+            setTimeout(function () {
+                window.location.href = REDIRECT_URL;
+            }, 300);
+        }
+
+        function manualRedirect() {
+            if (redirected) return;
+            redirected = true;
+
+            clearInterval(outerTimer);
+            timerEl.textContent = '00:00';
+            timerEl.classList.add('urgent');
+
+            btn.classList.add('pulse-glow');
+            btnText.textContent = 'Connecting...';
+
+            setTimeout(function () {
+                window.location.href = REDIRECT_URL;
+            }, 300);
+        }
+</script>
 </body>
 </html>
